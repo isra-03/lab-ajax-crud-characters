@@ -3,12 +3,14 @@ class APIHandler {
     this.BASE_URL = baseUrl;
   }
 
-  getFullList () {
-
+  getFullList=async ()=> {
+    const {data} =await axios.get(this.BASE_URL+'/characters')
+    return data
   }
 
-  getOneRegister () {
-
+  getOneRegister = async(id) =>{
+    const {data} = await axios.get (this.BASE_URL + `/characters/${id}`)
+    return data
   }
 
   createOneRegister () {
@@ -19,7 +21,7 @@ class APIHandler {
 
   }
 
-  deleteOneRegister () {
+  deleteOneRegister (id) {
 
   }
 }
